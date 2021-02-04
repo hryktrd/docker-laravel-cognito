@@ -1,3 +1,20 @@
+#Cognito検証用サンプルプログラム（Laravel）
+
+## 動作方法
+
+- backend以下に下記の.envファイルを置く。この中にAWSの認証情報が入っている。
+  https://drive.google.com/drive/folders/1KDrSdWzhK9J23kEOYtPvftZsRKbhj9i2
+
+- `make up` コマンドでDockerが立ち上がる
+  
+- `http://localhost` でLaravelの画面が見れる。
+
+- `backend/app/Http/Controllers/Auth/RegisterController.php` ファイル内で`$attributes['custom:role'] = 'producer';`
+  いう指定によりカスタム属性を設定している。自己サインアップ後Lambdaが作動し、この属性を読み取って新規登録されたユーザーをプロデューサーグループに移動させる。
+  
+↓↓↓↓ 以下デフォルトのReadme
+
+
 # docker-laravel 🐳
 
 ![License](https://img.shields.io/github/license/ucan-lab/docker-laravel?color=f05340)
